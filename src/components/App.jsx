@@ -1,4 +1,3 @@
-import i18next from 'i18next';
 import { useTranslation, Trans } from 'react-i18next';
 
 const lngs = {
@@ -7,7 +6,7 @@ const lngs = {
 };
 
 export const App = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   return (
     <div
       style={{
@@ -19,18 +18,17 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <div>
-        {Object.keys(lngs).map(lng => {
-          <button
-            type="submit"
-            key={lng}
-            onClick={() => i18n.changeLanguage(lng)}
-            disabled={i18n.resolvedLanguage === lng.nativeName}
-          >
-            {lngs[lng]}
-          </button>;
-        })}
-      </div>
+      {Object.keys(lngs).map(lng => {
+        <button
+          type="submit"
+          key={lng}
+          onClick={() => i18n.changeLanguage(lng)}
+          disabled={i18n.resolvedLanguage === lng.nativeName}
+        >
+          {lngs[lng]}
+        </button>;
+      })}
+
       <Trans i18nKey="description">Use React</Trans>
       {t('Learn')}
     </div>

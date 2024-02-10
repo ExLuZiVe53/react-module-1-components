@@ -11,7 +11,7 @@ i18next
       en: {
         translation: {
           learn: 'Learn React',
-          description: 'Edit<i>src/App.js</i>and save to React',
+          description: 'Edit and save to React',
         },
       },
       ua: {
